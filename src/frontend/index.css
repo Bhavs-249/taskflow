@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* === TaskFlow Design Tokens === */
+    /* Primary: Teal-Cyan — focused, productive */
+    --primary: 0.65 0.14 195;
+    --primary-foreground: 1 0 0;
+    --primary-dark: 0.5 0.14 195;
+
+    /* Secondary: Soft slate */
+    --secondary: 0.94 0.01 240;
+    --secondary-foreground: 0.25 0.03 240;
+
+    /* Accent: Amber — high priority marker */
+    --accent: 0.78 0.16 75;
+    --accent-foreground: 0.12 0.03 75;
+
+    /* Neutral surface */
+    --background: 0.97 0.005 240;
+    --foreground: 0.13 0.02 260;
+
+    --card: 1 0 0;
+    --card-foreground: 0.13 0.02 260;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.13 0.02 260;
+
+    --muted: 0.93 0.01 240;
+    --muted-foreground: 0.5 0.02 240;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.88 0.01 240;
+    --input: 0.88 0.01 240;
+    --ring: 0.65 0.14 195;
+
+    /* Status colors */
+    --status-pending: 0.55 0.03 240;
+    --status-inprogress: 0.6 0.14 250;
+    --status-done: 0.6 0.14 162;
+
+    /* Priority colors */
+    --priority-high: 0.55 0.22 25;
+    --priority-medium: 0.72 0.16 75;
+    --priority-low: 0.6 0.14 162;
+
+    /* Chart colors */
+    --chart-1: 0.65 0.14 195;
+    --chart-2: 0.72 0.16 75;
+    --chart-3: 0.6 0.14 162;
+    --chart-4: 0.6 0.14 250;
+    --chart-5: 0.55 0.22 25;
+
+    /* Sidebar */
+    --sidebar: 0.12 0.02 260;
+    --sidebar-foreground: 0.97 0.005 240;
+    --sidebar-primary: 0.65 0.14 195;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.2 0.03 260;
+    --sidebar-accent-foreground: 0.97 0.005 240;
+    --sidebar-border: 0.22 0.03 260;
+    --sidebar-ring: 0.65 0.14 195;
+  }
+
+  .dark {
+    --background: 0.12 0.02 260;
+    --foreground: 0.95 0.005 240;
+
+    --card: 0.17 0.025 260;
+    --card-foreground: 0.95 0.005 240;
+
+    --popover: 0.19 0.025 260;
+    --popover-foreground: 0.95 0.005 240;
+
+    --primary: 0.7 0.14 195;
+    --primary-foreground: 0.1 0.02 260;
+
+    --secondary: 0.22 0.03 260;
+    --secondary-foreground: 0.85 0.01 240;
+
+    --muted: 0.22 0.03 260;
+    --muted-foreground: 0.6 0.02 240;
+
+    --accent: 0.78 0.16 75;
+    --accent-foreground: 0.12 0.03 75;
+
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 0.95 0 0;
+
+    --border: 0.25 0.03 260;
+    --input: 0.25 0.03 260;
+    --ring: 0.7 0.14 195;
+
+    --chart-1: 0.7 0.14 195;
+    --chart-2: 0.78 0.16 75;
+    --chart-3: 0.65 0.14 162;
+    --chart-4: 0.65 0.14 250;
+    --chart-5: 0.65 0.22 25;
+
+    --sidebar: 0.1 0.02 260;
+    --sidebar-foreground: 0.95 0.005 240;
+    --sidebar-primary: 0.7 0.14 195;
+    --sidebar-primary-foreground: 0.1 0.02 260;
+    --sidebar-accent: 0.18 0.025 260;
+    --sidebar-accent-foreground: 0.95 0.005 240;
+    --sidebar-border: 0.22 0.03 260;
+    --sidebar-ring: 0.7 0.14 195;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  code, kbd, pre {
+    font-family: 'DM Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .font-mono-custom {
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Smooth appear animation */
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 oklch(0.65 0.14 195 / 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 12px oklch(0.65 0.14 195 / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 oklch(0.65 0.14 195 / 0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.35s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.25s ease-out forwards;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      oklch(0.93 0.01 240) 25%,
+      oklch(0.96 0.005 240) 50%,
+      oklch(0.93 0.01 240) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
+
+  /* Glass morphism */
+  .glass {
+    background: oklch(1 0 0 / 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    background: oklch(0.17 0.025 260 / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
